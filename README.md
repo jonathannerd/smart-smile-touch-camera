@@ -1,6 +1,17 @@
-# Smart Smile & Touch Camera
+<div align="center">
+  <img src="docs/raspberry-pi-5.jpg" alt="Raspberry Pi 5" width="620">
 
-A Raspberry Pi 5 camera system with:
+  # Smart Smile & Touch Camera
+
+  **A Raspberry Pi 5 camera that captures smiles, records on touch, and streams to a browser.**
+
+  ![Python](https://img.shields.io/badge/Python-3-3776AB?logo=python&logoColor=white)
+  ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-5-C51A4A?logo=raspberrypi&logoColor=white)
+  ![OpenCV](https://img.shields.io/badge/OpenCV-smile_detection-5C3EE8?logo=opencv&logoColor=white)
+  ![Flask](https://img.shields.io/badge/Flask-live_dashboard-000?logo=flask&logoColor=white)
+</div>
+
+## Features
 
 - a live video feed in a web browser;
 - automatic smile-triggered photos;
@@ -23,6 +34,15 @@ Touching the capacitive sensor toggles recording:
 - second touch: stop and save the video.
 
 The browser interface displays the current event, recording state, latest filenames, and download links.
+
+```mermaid
+flowchart TD
+    A["OV5647 camera frame"] --> B["Browser MJPEG stream"]
+    A --> C["OpenCV smile detection"]
+    A --> D["MJPG video writer"]
+    C --> E["Timestamped photo"]
+    F["GPIO17 touch sensor"] --> D
+```
 
 ## Hardware
 
@@ -164,4 +184,3 @@ The video uses the MJPG codec in an AVI container. VLC can play this format, or 
 - The program detects a smile-like pattern; it does not identify the person.
 - Photos and videos are stored locally rather than uploaded automatically.
 - The browser must be able to reach the Raspberry Pi over the local network.
-
