@@ -1,0 +1,4 @@
+[all]
+camera_auto_detect=0
+dtoverlay=ov5647,cam0
+

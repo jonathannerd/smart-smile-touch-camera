@@ -1,0 +1,6 @@
+python3-picamera2
+python3-opencv
+opencv-data
+python3-gpiozero
+python3-flask
+
